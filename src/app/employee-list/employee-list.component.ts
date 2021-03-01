@@ -24,15 +24,15 @@ export class EmployeeListComponent implements OnInit {
       this.employees = data;
     });
   }
-  employeeDetails(id: number){
+  employeeDetails(id: number | undefined){
     this.router.navigate(['employee-details', id]);
   }
 
-  updateEmployee(id: number){
+  updateEmployee(id: number | undefined){
     this.router.navigate(['update-employee', id]);
   }
 
-  deleteEmployee(id: number){
+  deleteEmployee(id: number | undefined){
     this.employeeService.deleteEmployee(id).subscribe( data => {
       console.log(data);
       this.getEmployees();
