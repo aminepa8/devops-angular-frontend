@@ -3,7 +3,7 @@ FROM node:latest as node
 WORKDIR /app
 COPY . .
 RUN npm install 
-RUN npm run ng build --prod
+RUN npm run ng build --configuration=production
 
 
 # stage 2
