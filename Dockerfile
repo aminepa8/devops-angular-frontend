@@ -8,8 +8,7 @@ RUN npm run ng build --configuration=production
 
 # stage 2
  FROM nginx:alpine
- COPY --from=node /app/dist/angular-frontend /usr/share/nginx/html
+ COPY --from=node /app/dist/angular-frontend /usr/share/nginx/html 
+# Copy the default nginx.conf provided 
+ COPY --from=build-stage /app/dist/angular-frontend/nginx.conf /etc/nginx/conf.d/default.conf
  EXPOSE 80
-
-# Copy the default nginx.conf 
-COPY --from=node /nginx.conf /etc/nginx/conf.d/default.conf
