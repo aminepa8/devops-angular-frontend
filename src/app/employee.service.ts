@@ -12,8 +12,10 @@ export class EmployeeService {
   constructor(private httpClient: HttpClient) { }
 
   getEmployeesList(): Observable<Employee[]>{
-    console.log(this.httpClient.get<Employee[]>(`${this.baseURL}`)); //debugging
-    return this.httpClient.get<Employee[]>(`${this.baseURL}`);
+   // console.log(this.httpClient.get<Employee[]>(`${this.baseURL}`)); //debugging
+    //return this.httpClient.get<Employee[]>(`${this.baseURL}`);
+
+    return this.httpClient.get<Employee[]>("http://13.90.21.114:8080/api/v1/employees");
   }
 
   createEmployee(employee: Employee): Observable<Object>{
